@@ -1,0 +1,107 @@
+﻿<Page x:Class="ToDo.Pages.TasksPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="TasksPage"
+      Background="Transparent">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <materialDesign:Card Grid.Row="0" UniformCornerRadius="8" Padding="20" Margin="0,0,0,15"
+                     materialDesign:ElevationAssist.Elevation="Dp2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                <TextBox x:Name="NewTaskTxt" 
+                 Width="300" Margin="0,0,15,0"
+                 materialDesign:HintAssist.Hint="Что нужно сделать?"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+                <ComboBox x:Name="CategoryComboBox" 
+                  Width="150" Margin="0,0,15,0"
+                  materialDesign:HintAssist.Hint="Категория"
+                  DisplayMemberPath="Name" SelectedValuePath="Id"
+                  Style="{StaticResource MaterialDesignOutlinedComboBox}"/>
+
+                <ComboBox x:Name="PriorityComboBox" 
+                  Width="150" Margin="0,0,15,0"
+                  materialDesign:HintAssist.Hint="Приоритет"
+                  DisplayMemberPath="Name" SelectedValuePath="Id"
+                  Style="{StaticResource MaterialDesignOutlinedComboBox}"/>
+
+                <Button x:Name="AddTaskBtn" 
+                Content="Добавить" 
+                Click="AddTaskBtn_Click"
+                Width="120"
+                Style="{StaticResource MaterialDesignRaisedButton}"/>
+
+            </StackPanel>
+        </materialDesign:Card>
+
+        <DockPanel Grid.Row="1" Margin="0,0,0,15" LastChildFill="False">
+
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}"
+                     Content="Все задачи" IsChecked="True" Margin="0,0,10,0"
+                     Checked="Filter_Checked" x:Name="FilterAll"/>
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}"
+                     Content="В процессе" Margin="0,0,10,0"
+                     Checked="Filter_Checked" x:Name="FilterActive"/>
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}"
+                     Content="Завершенные" Margin="0,0,10,0"
+                     Checked="Filter_Checked" x:Name="FilterCompleted"/>
+            </StackPanel>
+
+            <ComboBox x:Name="SortComboBox" 
+              Width="160" 
+              DockPanel.Dock="Right"
+              materialDesign:HintAssist.Hint="Сортировка"
+              Style="{StaticResource MaterialDesignOutlinedComboBox}"
+              SelectionChanged="Filter_Checked">
+                <ComboBoxItem Content="Сначала новые"/>
+                <ComboBoxItem Content="Сначала старые"/>
+                <ComboBoxItem Content="По алфавиту"/>
+            </ComboBox>
+
+        </DockPanel>
+
+
+
+        <ListBox Grid.Row="2" x:Name="TasksListBox" 
+                 HorizontalContentAlignment="Stretch"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <materialDesign:Card UniformCornerRadius="8" Margin="0,4" Padding="12"
+                                         materialDesign:ElevationAssist.Elevation="Dp1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <CheckBox Grid.Column="0" IsChecked="{Binding IsCompleted}" 
+                                      VerticalAlignment="Center" Margin="0,0,15,0"
+                                      Click="TaskCheckBox_Changed"/>
+
+                            <TextBlock Grid.Column="1" Text="{Binding Title}" 
+                                       FontSize="16" VerticalAlignment="Center" TextWrapping="Wrap"
+                                       Foreground="{DynamicResource MaterialDesign.Brush.TextPrimary}"/>
+
+                            <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}"
+                                    Padding="0" Width="35" Height="35" Foreground="{DynamicResource MaterialDesign.Brush.Error}"
+                                    Click="DeleteTaskBtn_Click">
+                                <materialDesign:PackIcon Kind="Delete" Width="20" Height="20"/>
+                            </Button>
+                        </Grid>
+                    </materialDesign:Card>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>

@@ -1,0 +1,40 @@
+﻿<Page x:Class="ToDo.RegisterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="RegisterPage"
+      Background="Transparent">
+
+    <materialDesign:Card UniformCornerRadius="15" Margin="30" VerticalAlignment="Center" Effect="{DynamicResource MaterialDesignShadowDepth3}" Padding="20">
+        <StackPanel Width="320" VerticalAlignment="Center" >
+            <TextBlock Text="Регистрация" FontSize="24" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+            <TextBlock Text="Создайте новый аккаунт ToDo" Foreground="Gray" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+            <TextBox x:Name="LoginTxt" 
+             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+             materialDesign:HintAssist.Hint="Логин" 
+             Margin="0,0,0,15"/>
+
+            <TextBox x:Name="EmailTxt" 
+             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+             materialDesign:HintAssist.Hint="Email" 
+             Margin="0,0,0,15"/>
+
+            <PasswordBox x:Name="PasswordBox" 
+                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
+                 materialDesign:HintAssist.Hint="Придумайте пароль" 
+                 Margin="0,0,0,25"/>
+
+            <Button x:Name="RegisterBtn" 
+            Content="ЗАРЕГИСТРИРОВАТЬСЯ" 
+            Click="RegisterBtn_Click"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            Height="45" FontSize="14"/>
+
+            <Button Content="Уже есть аккаунт? Войти" 
+            Style="{StaticResource MaterialDesignFlatButton}" 
+            Foreground="{DynamicResource PrimaryHueMidBrush}"
+            Margin="0,15,0,0"/>
+        </StackPanel>
+    </materialDesign:Card>
+</Page>

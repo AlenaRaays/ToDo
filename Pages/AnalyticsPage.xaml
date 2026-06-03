@@ -1,0 +1,51 @@
+﻿<Page x:Class="ToDo.Pages.AnalyticsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="AnalyticsPage" Background="Transparent">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <UniformGrid Grid.Row="0" Columns="3" Margin="0,0,0,20">
+            <materialDesign:Card Margin="5" Padding="20" UniformCornerRadius="10" Background="#E3F2FD">
+                <StackPanel>
+                    <TextBlock Text="Всего задач в БД" FontSize="14" Foreground="#1E88E5"/>
+                    <TextBlock x:Name="TotalTasksTxt" Text="0" FontSize="36" FontWeight="Bold" Foreground="#1E88E5" Margin="0,10,0,0"/>
+                </StackPanel>
+            </materialDesign:Card>
+
+            <materialDesign:Card Margin="5" Padding="20" UniformCornerRadius="10" Background="#E8F5E9">
+                <StackPanel>
+                    <TextBlock Text="Привычек в трекере" FontSize="14" Foreground="#43A047"/>
+                    <TextBlock x:Name="TotalHabitsTxt" Text="0" FontSize="36" FontWeight="Bold" Foreground="#43A047" Margin="0,10,0,0"/>
+                </StackPanel>
+            </materialDesign:Card>
+
+            <materialDesign:Card Margin="5" Padding="20" UniformCornerRadius="10" Background="#FFF3E0">
+                <StackPanel>
+                    <TextBlock Text="Запросов к ИИ" FontSize="14" Foreground="#FB8C00"/>
+                    <TextBlock x:Name="TotalAiRequestsTxt" Text="0" FontSize="36" FontWeight="Bold" Foreground="#FB8C00" Margin="0,10,0,0"/>
+                </StackPanel>
+            </materialDesign:Card>
+        </UniformGrid>
+
+        <materialDesign:Card Grid.Row="1" UniformCornerRadius="10" Padding="20">
+            <StackPanel>
+                <TextBlock Text="Прогресс выполнения по категориям (%)" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,20"/>
+
+                <TextBlock Text="Учеба / Курсовая" Margin="0,5,0,5"/>
+                <ProgressBar x:Name="StudyProgress" Value="0" Height="15" Foreground="#6200EE" Background="#E0E0E0"/>
+
+                <TextBlock Text="Спорт и здоровье" Margin="0,15,0,5"/>
+                <ProgressBar x:Name="SportProgress" Value="0" Height="15" Foreground="#03DAC6" Background="#E0E0E0"/>
+
+                <TextBlock Text="Бытовые дела" Margin="0,15,0,5"/>
+                <ProgressBar x:Name="ChoresProgress" Value="0" Height="15" Foreground="#FF0266" Background="#E0E0E0"/>
+            </StackPanel>
+        </materialDesign:Card>
+    </Grid>
+</Page>
