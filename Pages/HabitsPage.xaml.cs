@@ -97,5 +97,21 @@ namespace ToDo.Pages
                 LoadHabitsFromDb();
             }
         }
+
+        public (int total, int completed, double percentage) GetTaskProgress()
+        {
+            using (var db = new AppDbContext())
+            {
+                var tasks = db.TodoTasks.Where(t => t.UserId == UserSession.CurrentUserId).ToList();
+
+                int total = tasks.Count;
+                if (total == 0) return (0, 0, 0);
+
+                int completed = tasks.Count(t => t.IsCompleted); // Предполагаю, что у тебя есть bool IsCompleted
+                double percentage = (double)completed / total * 100;
+
+                return (total, completed, percentage);
+            }
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace ToDo
             {
                 Username = LoginTxt.Text.Trim(),
                 Email = EmailTxt.Text.Trim(),
-                PasswordHash = PasswordBox.Password
+                PasswordHash = SequrityHelper.HashPassword(PasswordBox.Password)
             };
 
             var context = new System.ComponentModel.DataAnnotations.ValidationContext(newUser);
@@ -35,11 +35,13 @@ namespace ToDo
                 return;
             }
 
-            // Если всё ок — сохраняем
+
             using (var db = new AppDbContext())
             {
                 db.Users.Add(newUser);
                 db.SaveChanges();
+                MessageBox.Show("Регистрация успешна!");
+                NavigationService.Navigate(new Authorize());
             }
         }
         private void GoToLogin_Click(object sender, RoutedEventArgs e)

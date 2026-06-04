@@ -142,3 +142,4 @@ C:\Users\Alena\source\repos\ToDo\obj\Debug\net8.0-windows\refint\ToDo.dll
 C:\Users\Alena\source\repos\ToDo\obj\Debug\net8.0-windows\ToDo.pdb
 C:\Users\Alena\source\repos\ToDo\obj\Debug\net8.0-windows\ToDo.genruntimeconfig.cache
 C:\Users\Alena\source\repos\ToDo\obj\Debug\net8.0-windows\ref\ToDo.dll
+C:\Users\Alena\source\repos\ToDo\obj\Debug\net8.0-windows\ToDo.sourcelink.json

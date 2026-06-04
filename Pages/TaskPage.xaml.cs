@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Xml.Linq;
 using ToDo.AppData;
 using ToDo.Entities;
@@ -12,28 +14,13 @@ namespace ToDo.Pages
 {
     public partial class TasksPage : Page
     {
+        private int _editingTaskId = 0;
         public TasksPage()
         {
             InitializeComponent();
-            LoadTasksFromDb();
+            UpdateTaskSource();
+            LoadCategories();
             InitializeComboBoxes();
-        }
-        private void LoadTasksFromDb()
-        {
-            try
-            {
-                using (var db = new AppDbContext())
-                {
-                    var tasksFromDb = db.TodoTasks
-                        .Where(t => t.UserId == UserSession.CurrentUserId)
-                        .ToList();
-                }
-                UpdateTaskSource();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка БД: {ex.Message}");
-            }
         }
 
         private void AddTaskBtn_Click(object sender, RoutedEventArgs e)
@@ -42,42 +29,73 @@ namespace ToDo.Pages
 
             if (string.IsNullOrEmpty(taskTitle))
             {
-                MessageBox.Show("Введите название задачи!", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Введите название задачи!", "Предупреждение");
                 return;
             }
 
             int? selectedCategoryId = CategoryComboBox.SelectedValue as int?;
             int? selectedPriorityId = PriorityComboBox.SelectedValue as int?;
 
+            string description = DescriptionTxt.Text.Trim();
+
+            DateTime? dueTime = DueTimePick.SelectedTime;
+            DateTime? dueDate = DueDatePick.SelectedDate;
+
+            DateTime combinedDateTime = new DateTime(
+                dueDate.Value.Year, dueDate.Value.Month, dueDate.Value.Day,
+                dueTime.Value.Hour, dueTime.Value.Minute, dueTime.Value.Second
+            );
+
             try
             {
                 using (var db = new AppDbContext())
                 {
-                    var newTask = new TodoTask
+                    if (_editingTaskId != 0)
                     {
-                        Title = taskTitle,
-                        Description = "",
-                        CreatedAt = DateTime.Now,
-                        UserId = UserSession.CurrentUserId,
-                        StatusId = 1, 
-                        CategoryId = selectedCategoryId,
-                        PriorityId = selectedPriorityId ?? 2 
-                    };
+                        var taskToUpdate = db.TodoTasks.Find(_editingTaskId);
+                        if (taskToUpdate != null)
+                        {
+                            taskToUpdate.Title = NewTaskTxt.Text;
+                            taskToUpdate.Description = DescriptionTxt.Text;
+                            taskToUpdate.CategoryId = (int?)CategoryComboBox.SelectedValue;
+                            taskToUpdate.PriorityId = (int?)PriorityComboBox.SelectedValue ?? 2;
+                            taskToUpdate.DueDate = combinedDateTime;
 
-                    db.TodoTasks.Add(newTask);
-                    db.SaveChanges();
+                            db.SaveChanges();
+                        }
+                    }
+                    else
+                    {
+                        var newTask = new TodoTask
+                        {
+                            Title = taskTitle,
+                            Description = description,
+                            DueDate = combinedDateTime,
+                            CreatedAt = DateTime.Now,
+                            UserId = UserSession.CurrentUserId,
+                            StatusId = 1,
+                            CategoryId = selectedCategoryId,
+                            PriorityId = selectedPriorityId ?? 2
+                        };
+                        db.TodoTasks.Add(newTask);
+                        db.SaveChanges();
 
 
-                    NewTaskTxt.Clear();
-                    CategoryComboBox.SelectedIndex = -1;
-                    PriorityComboBox.SelectedIndex = -1;
+                        AddTaskBtn.Content = "Добавить";
+                        _editingTaskId = 0;
+                        NewTaskTxt.Clear();
+                        DescriptionTxt.Clear();
+                        DueDatePick.SelectedDate = null;
+                        CategoryComboBox.SelectedIndex = -1;
+                        PriorityComboBox.SelectedIndex = -1;
+
+                    }
                 }
-
                 UpdateTaskSource();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Не удалось сохранить задачу: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Ошибка сохранения: {ex.Message}");
             }
         }
         private void DeleteTaskBtn_Click(object sender, RoutedEventArgs e)
@@ -114,11 +132,32 @@ namespace ToDo.Pages
             }
         }
 
+        private void LoadCategories()
+        {
+            using (var db = new AppDbContext())
+            {
+                var categories = db.Categories.ToList();
+
+                categories.Insert(0, new Category { Name = "Все категории", Id = 0 });
+
+                CategoryFilter.ItemsSource = categories;
+                CategoryFilter.SelectedIndex = 0;
+            }
+        }
+
         private void Filter_Checked(object sender, RoutedEventArgs e)
         {
             UpdateTaskSource();
         }
 
+        private void CategoryFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateTaskSource();
+        }
+        private void SearchTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateTaskSource();
+        }
         private void UpdateTaskSource()
         {
             if (TasksListBox == null) return;
@@ -127,39 +166,37 @@ namespace ToDo.Pages
             {
                 using (var db = new AppDbContext())
                 {
-                    // 1. Базовый запрос
                     IQueryable<TodoTask> query = db.TodoTasks.Where(t => t.UserId == UserSession.CurrentUserId);
 
-                    // 2. Фильтрация
+                    string searchText = SearchTxt.Text.Trim().ToLower();
+                    if (!string.IsNullOrEmpty(searchText))
+                    {
+                        query = query.Where(t => t.Title.ToLower().Contains(searchText));
+                    }
+
                     if (FilterActive.IsChecked == true)
                         query = query.Where(t => t.StatusId != 3);
                     else if (FilterCompleted.IsChecked == true)
                         query = query.Where(t => t.StatusId == 3);
 
-                    // 3. Сортировка
-                    switch (SortComboBox.SelectedIndex)
+                    if (CategoryFilter.SelectedItem is Category selectedCategory && selectedCategory.Id != 0)
                     {
-                        case 0:
-                            query = query.OrderByDescending(t => t.CreatedAt);
-                            break;
-                        case 1:
-                            query = query.OrderBy(t => t.CreatedAt);
-                            break;
-                        case 2:
-                            query = query.OrderBy(t => t.Title);
-                            break;
-                        default:
-                            query = query.OrderByDescending(t => t.CreatedAt);
-                            break;
+                        query = query.Where(t => t.CategoryId == selectedCategory.Id);
                     }
 
-                    // 4. Вывод
+                    switch (SortComboBox.SelectedIndex)
+                    {
+                        case 1: query = query.OrderBy(t => t.CreatedAt); break;
+                        case 2: query = query.OrderBy(t => t.Title); break;
+                        default: query = query.OrderByDescending(t => t.CreatedAt); break;
+                    }
+
                     TasksListBox.ItemsSource = query.ToList();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при загрузке: {ex.Message}");
+                MessageBox.Show($"Ошибка при обновлении списка: {ex.Message}");
             }
         }
         private void InitializeComboBoxes()
@@ -176,6 +213,34 @@ namespace ToDo.Pages
             {
                 MessageBox.Show($"Ошибка загрузки справочников: {ex.Message}");
             }
+        }
+
+        private void TasksListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (TasksListBox.SelectedItem is TodoTask selectedTask)
+            {
+                _editingTaskId = selectedTask.Id;
+
+                NewTaskTxt.Text = selectedTask.Title;
+                DescriptionTxt.Text = selectedTask.Description;
+                CategoryComboBox.SelectedValue = selectedTask.CategoryId;
+                PriorityComboBox.SelectedValue = selectedTask.PriorityId;
+                DueDatePick.SelectedDate = selectedTask.DueDate;
+
+                AddTaskBtn.Content = "Сохранить изменения";
+            }
+        }
+
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddTaskBtn.Content = "Добавить";
+            _editingTaskId = 0;
+            NewTaskTxt.Clear();
+            DescriptionTxt.Clear();
+            DueDatePick.SelectedDate = null;
+            CategoryComboBox.SelectedIndex = -1;
+            PriorityComboBox.SelectedIndex = -1;
         }
     }
 }

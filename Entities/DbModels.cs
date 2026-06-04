@@ -39,8 +39,8 @@ namespace ToDo.Entities
         [EmailAddress(ErrorMessage = "Введите корректный адрес электронной почты")]
         [StringLength(100)]
         public string Email { get; set; } = string.Empty;
-
-        public int RoleId { get; set; }
+        public int AiRequestCount { get; set; }
+        public int RoleId { get; set; } = 2;
 
         [ForeignKey("RoleId")]
         public virtual Role? Role { get; set; }

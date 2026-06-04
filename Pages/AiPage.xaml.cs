@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using ToDo.AppData;
+using ToDo.Helpers;
 
 namespace ToDo.Pages
 {
@@ -28,7 +30,16 @@ namespace ToDo.Pages
             _messages.Add(new ChatMessage { Text = userText, IsUser = true });
             AiPromptTxt.Clear();
 
-            // Симулируем «мышление» нейросети (позже тут будет реальный API запрос)
+            using (var db = new AppDbContext())
+            {
+                var user = db.Users.FirstOrDefault(u => u.Id == UserSession.CurrentUserId);
+                if (user != null)
+                {
+                    user.AiRequestCount++;
+                    db.SaveChanges();
+                }
+            }
+
             _messages.Add(new ChatMessage { Text = "Нейросеть генерирует ответ...", IsUser = false });
             ChatItemsControl.Items.Refresh();
 

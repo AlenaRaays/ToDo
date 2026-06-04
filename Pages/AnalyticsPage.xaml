@@ -34,17 +34,34 @@
         </UniformGrid>
 
         <materialDesign:Card Grid.Row="1" UniformCornerRadius="10" Padding="20">
-            <StackPanel>
-                <TextBlock Text="Прогресс выполнения по категориям (%)" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,20"/>
+            <StackPanel Margin="20">
+                <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Учеба / Курсовая" Margin="0,5,0,5"/>
-                <ProgressBar x:Name="StudyProgress" Value="0" Height="15" Foreground="#6200EE" Background="#E0E0E0"/>
+                    <TextBlock Text="Ваш прогресс по задачам" 
+                   FontSize="18" FontWeight="Bold" 
+                   VerticalAlignment="Center" 
+                   Grid.Column="0"/>
 
-                <TextBlock Text="Спорт и здоровье" Margin="0,15,0,5"/>
-                <ProgressBar x:Name="SportProgress" Value="0" Height="15" Foreground="#03DAC6" Background="#E0E0E0"/>
+                    <Button Click="Refresh_Click" 
+                Style="{StaticResource MaterialDesignIconButton}" 
+                ToolTip="Обновить данные"
+                Grid.Column="1">
+                        <materialDesign:PackIcon Kind="Refresh"/>
+                    </Button>
+                </Grid>
 
-                <TextBlock Text="Бытовые дела" Margin="0,15,0,5"/>
-                <ProgressBar x:Name="ChoresProgress" Value="0" Height="15" Foreground="#FF0266" Background="#E0E0E0"/>
+                <ProgressBar x:Name="TasksProgressBar" 
+                 Height="20" 
+                 Minimum="0" Maximum="100" 
+                 Foreground="Green"/>
+
+                <TextBlock x:Name="ProgressText" 
+               Text="Выполнено: 0 из 0" 
+               HorizontalAlignment="Center" Margin="0,5,0,0"/>
             </StackPanel>
         </materialDesign:Card>
     </Grid>

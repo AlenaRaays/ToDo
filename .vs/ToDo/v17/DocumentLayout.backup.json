@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Alena\\source\\repos\\ToDo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\pages\\registerpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:pages\\registerpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\pages\\taskpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:pages\\taskpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\pages\\registerpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:pages\\registerpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\pages\\taskpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:pages\\taskpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\pages\\habitspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:pages\\habitspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\entities\\dbmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:entities\\dbmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,52 +38,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RegisterPage.xaml",
-              "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\RegisterPage.xaml",
-              "RelativeDocumentMoniker": "Pages\\RegisterPage.xaml",
-              "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\RegisterPage.xaml",
-              "RelativeToolTip": "Pages\\RegisterPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-03T06:05:43.502Z",
+              "DocumentIndex": 2,
+              "Title": "DbModels.cs",
+              "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Entities\\DbModels.cs",
+              "RelativeDocumentMoniker": "Entities\\DbModels.cs",
+              "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Entities\\DbModels.cs",
+              "RelativeToolTip": "Entities\\DbModels.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAAAG0AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T06:01:08.039Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RegisterPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\RegisterPage.xaml.cs",
-              "RelativeDocumentMoniker": "Pages\\RegisterPage.xaml.cs",
-              "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\RegisterPage.xaml.cs",
-              "RelativeToolTip": "Pages\\RegisterPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-03T06:05:12.972Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\App.xaml",
-              "RelativeToolTip": "App.xaml",
+              "Title": "TaskPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\TaskPage.xaml",
+              "RelativeDocumentMoniker": "Pages\\TaskPage.xaml",
+              "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\TaskPage.xaml",
+              "RelativeToolTip": "Pages\\TaskPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-03T06:07:58.038Z",
+              "WhenOpened": "2026-06-03T18:54:02.749Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HabitsPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\HabitsPage.xaml.cs",
-              "RelativeDocumentMoniker": "Pages\\HabitsPage.xaml.cs",
-              "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\HabitsPage.xaml.cs",
-              "RelativeToolTip": "Pages\\HabitsPage.xaml.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAvwEQAAAA2AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "TaskPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\TaskPage.xaml.cs",
+              "RelativeDocumentMoniker": "Pages\\TaskPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\TaskPage.xaml.cs",
+              "RelativeToolTip": "Pages\\TaskPage.xaml.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAAAD0AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-03T05:46:00.309Z",
+              "WhenOpened": "2026-06-03T18:57:47.905Z",
               "EditorCaption": ""
             }
           ]

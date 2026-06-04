@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -37,20 +37,22 @@ namespace ToDo.Pages
                 using (var db = new AppDbContext())
                 {
                     int currentUserId = UserSession.CurrentUserId;
+                    var allTasks = db.TodoTasks.Where(t => t.UserId == currentUserId).ToList();
 
-                    int tasksCount = db.TodoTasks.Where(t => t.UserId == currentUserId).Count();
+                    var user = db.Users.FirstOrDefault(u => u.Id == currentUserId);
+                    int aiCount = user?.AiRequestCount ?? 0;
 
-                    int habitsCount = db.Habits.Where(h => h.UserId == currentUserId).Count();
+                    int total = allTasks.Count;
+                    int completed = allTasks.Count(t => t.StatusId == 3);
 
-                    int aiRequestsCount = 0;
+                    TotalTasksTxt.Text = total.ToString();
+                    TotalHabitsTxt.Text = db.Habits.Count(h => h.UserId == currentUserId).ToString();
+                    TotalAiRequestsTxt.Text = aiCount.ToString();
 
-                    TotalTasksTxt.Text = tasksCount.ToString();
-                    TotalHabitsTxt.Text = habitsCount.ToString();
-                    TotalAiRequestsTxt.Text = aiRequestsCount.ToString();
+                    double percentage = total == 0 ? 0 : ((double)completed / total) * 100;
 
-                    StudyProgress.Value = CalculateCategoryProgress(db, "Учеба", currentUserId);
-                    SportProgress.Value = CalculateCategoryProgress(db, "Спорт", currentUserId);
-                    ChoresProgress.Value = CalculateCategoryProgress(db, "Быт", currentUserId);
+                    TasksProgressBar.Value = percentage;
+                    ProgressText.Text = $"Выполнено: {completed} из {total} задач ({Math.Round(percentage)}%)";
                 }
             }
             catch (Exception ex)
@@ -58,18 +60,9 @@ namespace ToDo.Pages
                 MessageBox.Show($"Не удалось загрузить аналитику: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        private double CalculateCategoryProgress(AppDbContext db, string categoryName, int userId)
+        private void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            var userCategoryTasks = db.TodoTasks
-                .Where(t => t.UserId == userId && t.Category != null && t.Category.Name == categoryName);
-
-            int total = userCategoryTasks.Count();
-
-            if (total == 0) return 0;
-            
-            int completed = userCategoryTasks.Where(t => t.StatusId == 3).Count();
-            return ((double)completed / total) * 100;
+            LoadAnalyticsFromDb();
         }
     }
 }
