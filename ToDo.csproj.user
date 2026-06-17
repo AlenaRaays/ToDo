@@ -17,6 +17,9 @@
     <Compile Update="Pages\MainWorkspacePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\QrCodeWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\RegisterPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

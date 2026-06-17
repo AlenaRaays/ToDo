@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Alena\\source\\repos\\ToDo\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\pages\\aipage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:pages\\aipage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\pages\\aipage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:pages\\aipage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\helpers\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:helpers\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\pages\\taskpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:pages\\taskpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\pages\\taskpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:pages\\taskpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\entities\\dbmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:entities\\dbmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,40 +42,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DbModels.cs",
-              "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Entities\\DbModels.cs",
-              "RelativeDocumentMoniker": "Entities\\DbModels.cs",
-              "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Entities\\DbModels.cs",
-              "RelativeToolTip": "Entities\\DbModels.cs",
-              "ViewState": "AgIAAF8AAAAAAAAAAAAAAG0AAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T06:01:08.039Z",
+              "DocumentIndex": 1,
+              "Title": "AiPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\AiPage.xaml",
+              "RelativeDocumentMoniker": "Pages\\AiPage.xaml",
+              "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\AiPage.xaml",
+              "RelativeToolTip": "Pages\\AiPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-06-17T05:51:14.862Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AiPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\AiPage.xaml.cs",
+              "RelativeDocumentMoniker": "Pages\\AiPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\AiPage.xaml.cs",
+              "RelativeToolTip": "Pages\\AiPage.xaml.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAABcAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-17T05:51:11.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AiService.cs",
+              "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Helpers\\AiService.cs",
+              "RelativeDocumentMoniker": "Helpers\\AiService.cs",
+              "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Helpers\\AiService.cs",
+              "RelativeToolTip": "Helpers\\AiService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-17T05:45:44.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "TaskPage.xaml",
               "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\TaskPage.xaml",
               "RelativeDocumentMoniker": "Pages\\TaskPage.xaml",
               "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\TaskPage.xaml",
               "RelativeToolTip": "Pages\\TaskPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-03T18:54:02.749Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TaskPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\TaskPage.xaml.cs",
-              "RelativeDocumentMoniker": "Pages\\TaskPage.xaml.cs",
-              "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\TaskPage.xaml.cs",
-              "RelativeToolTip": "Pages\\TaskPage.xaml.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAAAD0AAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-03T18:57:47.905Z",
+              "WhenOpened": "2026-06-17T05:04:25.152Z",
               "EditorCaption": ""
             }
           ]

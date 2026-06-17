@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 using System.Xml.Linq;
 using ToDo.AppData;
 using ToDo.Entities;
@@ -12,9 +13,20 @@ using ToDo.Helpers;
 
 namespace ToDo.Pages
 {
-    public partial class TasksPage : Page
+    public partial class TasksPage : Page, INotifyPropertyChanged
     {
         private int _editingTaskId = 0;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string name) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        
+        private ImageSource _qrCodeImage;
+        public ImageSource QrCodeImage
+        {
+            get => _qrCodeImage;
+            set { _qrCodeImage = value; OnPropertyChanged(nameof(QrCodeImage)); }
+        }
+
         public TasksPage()
         {
             InitializeComponent();
@@ -88,7 +100,6 @@ namespace ToDo.Pages
                         DueDatePick.SelectedDate = null;
                         CategoryComboBox.SelectedIndex = -1;
                         PriorityComboBox.SelectedIndex = -1;
-
                     }
                 }
                 UpdateTaskSource();
@@ -241,6 +252,51 @@ namespace ToDo.Pages
             DueDatePick.SelectedDate = null;
             CategoryComboBox.SelectedIndex = -1;
             PriorityComboBox.SelectedIndex = -1;
+        }
+
+        private void GenerateQrBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn && btn.DataContext is TodoTask selectedTask)
+            { 
+
+                string data = $"Задача: {selectedTask.Title}\nОписание: {selectedTask.Description}\nДата: {selectedTask.DueDate}";
+
+                QrHelper helper = new QrHelper();
+                var qrSource = helper.GenerateQRCode(data);
+
+                QrCodeWindow qrWindow = new QrCodeWindow(qrSource);
+                qrWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Не удалось определить задачу.");
+            }
+        }
+
+        private void ExportToPdfBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // Получаем задачу из кнопки в DataTemplate
+            if (sender is Button btn && btn.DataContext is TodoTask selectedTask)
+            {
+                var saveFileDialog = new Microsoft.Win32.SaveFileDialog
+                {
+                    Filter = "PDF файлы (*.pdf)|*.pdf",
+                    FileName = $"{selectedTask.Title.Replace(" ", "_")}.pdf"
+                };
+
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    try
+                    {
+                        PdfHelper.GenerateTaskPdf(saveFileDialog.FileName, selectedTask);
+                        MessageBox.Show("PDF-отчет успешно создан!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ошибка при создании PDF: {ex.Message}");
+                    }
+                }
+            }
         }
     }
 }

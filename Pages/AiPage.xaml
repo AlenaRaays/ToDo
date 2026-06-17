@@ -14,40 +14,41 @@
             <ItemsControl x:Name="ChatItemsControl">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <materialDesign:Card UniformCornerRadius="8" Padding="12" Margin="0,5" 
-                                     HorizontalAlignment="{Binding Alignment}">
-
+                        <materialDesign:Card UniformCornerRadius="16" Padding="14,10" Margin="5,5,5,5" 
+                                             HorizontalAlignment="{Binding Alignment}"
+                                             MaxWidth="400">
                             <materialDesign:Card.Style>
                                 <Style TargetType="materialDesign:Card" BasedOn="{StaticResource {x:Type materialDesign:Card}}">
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding IsUser}" Value="True">
-                                            <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Primary}" />
-                                            <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Primary.Foreground}" />
+                                            <Setter Property="Background" Value="#007AFF" />
+                                            <Setter Property="Foreground" Value="White" />
                                         </DataTrigger>
-
                                         <DataTrigger Binding="{Binding IsUser}" Value="False">
-                                            <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Surface}" />
-                                            <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.TextPrimary}" />
+                                            <Setter Property="Background" Value="#E9E9EB" />
+                                            <Setter Property="Foreground" Value="Black" />
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
                             </materialDesign:Card.Style>
-
-                            <TextBlock Text="{Binding Text}" FontSize="15" MaxWidth="500" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding Text}" FontSize="15" TextWrapping="Wrap"/>
                         </materialDesign:Card>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-        
-        <materialDesign:Card Grid.Row="1" UniformCornerRadius="25" Padding="10,5" materialDesign:ElevationAssist.Elevation="Dp3">
+
+        <materialDesign:Card Grid.Row="1" UniformCornerRadius="25" Padding="15,5" materialDesign:ElevationAssist.Elevation="Dp3">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" x:Name="AiPromptTxt" materialDesign:HintAssist.Hint="Спроси ИИ (напр., Как не прокрастинировать?)" BorderThickness="0" FontSize="15" VerticalAlignment="Center" Margin="10,0,10,0"/>
-                <Button Grid.Column="1" Click="SendPromptBtn_Click" Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
+                <TextBox Grid.Column="0" x:Name="QuestionTxt" 
+                         materialDesign:HintAssist.Hint="Введите сообщение..." 
+                         BorderThickness="0" FontSize="15" VerticalAlignment="Center" Margin="10,0"/>
+                <Button x:Name="SendPromptBtn" Grid.Column="1" Click="SendPromptBtn_Click" 
+                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
                     <materialDesign:PackIcon Kind="Send" Width="20" Height="20"/>
                 </Button>
             </Grid>

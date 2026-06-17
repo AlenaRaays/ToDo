@@ -4,37 +4,40 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       Title="TasksPage" Background="Transparent">
 
-<Grid Margin="20">
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*"/>   <ColumnDefinition Width="320"/> </Grid.ColumnDefinitions>
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="19.658"/>
+            <ColumnDefinition Width="300.342"/>
+        </Grid.ColumnDefinitions>
 
-    <Grid Grid.Column="0" Margin="0,0,20,0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Margin="0,0,20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
-            <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Content="Все" IsChecked="True" Checked="Filter_Checked" x:Name="FilterAll" Margin="0,0,15,0"/>
-            <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Content="В процессе" Checked="Filter_Checked" x:Name="FilterActive" Margin="0,0,15,0"/>
-            <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Content="Завершенные" Checked="Filter_Checked" x:Name="FilterCompleted"/>
-        </StackPanel>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Content="Все" IsChecked="True" Checked="Filter_Checked" x:Name="FilterAll" Margin="0,0,15,0"/>
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Content="В процессе" Checked="Filter_Checked" x:Name="FilterActive" Margin="0,0,15,0"/>
+                <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Content="Завершенные" Checked="Filter_Checked" x:Name="FilterCompleted"/>
+            </StackPanel>
 
-        <Grid Grid.Row="1" Margin="0,0,0,10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <TextBox x:Name="SearchTxt" Grid.Column="0" Margin="0,0,10,0" materialDesign:HintAssist.Hint="Поиск..." TextChanged="SearchTxt_TextChanged" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
-            <ComboBox x:Name="SortComboBox" Grid.Column="1" Width="130" Margin="0,0,10,0" materialDesign:HintAssist.Hint="Сортировка" SelectionChanged="Filter_Checked" Style="{StaticResource MaterialDesignOutlinedComboBox}">
-                <ComboBoxItem Content="Сначала новые"/>
-                <ComboBoxItem Content="Сначала старые"/>
-                <ComboBoxItem Content="По алфавиту"/>
-            </ComboBox>
-            <ComboBox x:Name="CategoryFilter" Grid.Column="2" Width="130" Margin="0,0,10,0" materialDesign:HintAssist.Hint="Категория" SelectionChanged="CategoryFilter_SelectionChanged" DisplayMemberPath="Name" SelectedValuePath="Id" Style="{StaticResource MaterialDesignOutlinedComboBox}"/>
-        </Grid>
+            <Grid Grid.Row="1" Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="SearchTxt" Grid.Column="0" Margin="0,0,10,0" materialDesign:HintAssist.Hint="Поиск..." TextChanged="SearchTxt_TextChanged" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                <ComboBox x:Name="SortComboBox" Grid.Column="1" Width="130" Margin="0,0,10,0" materialDesign:HintAssist.Hint="Сортировка" SelectionChanged="Filter_Checked" Style="{StaticResource MaterialDesignOutlinedComboBox}">
+                    <ComboBoxItem Content="Сначала новые"/>
+                    <ComboBoxItem Content="Сначала старые"/>
+                    <ComboBoxItem Content="По алфавиту"/>
+                </ComboBox>
+                <ComboBox x:Name="CategoryFilter" Grid.Column="2" Width="130" Margin="0,0,10,0" materialDesign:HintAssist.Hint="Категория" SelectionChanged="CategoryFilter_SelectionChanged" DisplayMemberPath="Name" SelectedValuePath="Id" Style="{StaticResource MaterialDesignOutlinedComboBox}"/>
+            </Grid>
 
             <ListBox Grid.Row="2" x:Name="TasksListBox" HorizontalContentAlignment="Stretch" SelectionChanged="TasksListBox_SelectionChanged">
                 <ListBox.ItemTemplate>
@@ -45,23 +48,29 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
                                 <CheckBox Grid.Column="0" IsChecked="{Binding IsCompleted}" 
-                                    VerticalAlignment="Center" Margin="0,0,15,0"
-                                    Click="TaskCheckBox_Changed"/>
+                          VerticalAlignment="Center" Margin="0,0,15,0"
+                          Click="TaskCheckBox_Changed"/>
 
                                 <TextBlock Grid.Column="1" Text="{Binding Title}" 
-                                    FontSize="16" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                           FontSize="16" VerticalAlignment="Center" TextWrapping="Wrap" Margin="0,0,10,0"/>
 
-                                <TextBlock Grid.Column="1" Text="{Binding DueDate}"
-                                    FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Style="{StaticResource MaterialDesignCaptionTextBlock}"></TextBlock>
+                                <TextBlock Grid.Column="2" Text="{Binding DueDate, StringFormat='dd.MM.yyyy HH:mm'}"
+                           FontSize="14" VerticalAlignment="Center" Margin="0,0,20,0"
+                           Style="{StaticResource MaterialDesignCaptionTextBlock}"/>
 
-                                <Button Grid.Column="2" Style="{StaticResource MaterialDesignFlatButton}"
-                                    Padding="0" Width="35" Height="35" Foreground="Red"
-                                    Click="DeleteTaskBtn_Click">
-                                    <materialDesign:PackIcon Kind="Delete" Width="20" Height="20"/>
-                                </Button>
+                                <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Button Content="QR" Click="GenerateQrBtn_Click" Margin="2" Padding="8,4"/>
+                                    <Button Content="PDF" Click="ExportToPdfBtn_Click" Margin="2" Padding="8,4"/>
+                                    <Button Style="{StaticResource MaterialDesignFlatButton}"
+                            Padding="0" Width="35" Height="35" Foreground="Red"
+                            Click="DeleteTaskBtn_Click">
+                                        <materialDesign:PackIcon Kind="Delete" Width="20" Height="20"/>
+                                    </Button>
+                                </StackPanel>
                             </Grid>
                         </materialDesign:Card>
                     </DataTemplate>
@@ -69,18 +78,19 @@
             </ListBox>
         </Grid>
 
-    <materialDesign:Card Grid.Column="1" Padding="20" UniformCornerRadius="8" VerticalAlignment="Top">
-        <StackPanel>
-            <TextBlock Text="Новая задача" FontWeight="Bold" Margin="0,0,0,10"/>
-            <TextBox x:Name="NewTaskTxt" Margin="0,0,0,10" materialDesign:HintAssist.Hint="Название..." Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
-            <ComboBox x:Name="CategoryComboBox" Margin="0,0,0,10" materialDesign:HintAssist.Hint="Категория" DisplayMemberPath="Name" SelectedValuePath="Id" Style="{StaticResource MaterialDesignOutlinedComboBox}"/>
-            <ComboBox x:Name="PriorityComboBox" Margin="0,0,0,10" materialDesign:HintAssist.Hint="Приоритет" DisplayMemberPath="Name" SelectedValuePath="Id" Style="{StaticResource MaterialDesignOutlinedComboBox}"/>
-            <TextBox x:Name="DescriptionTxt" Margin="0,0,0,10" materialDesign:HintAssist.Hint="Описание" TextWrapping="Wrap" AcceptsReturn="True" MinLines="2" MaxLines="3" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
-            <DatePicker x:Name="DueDatePick" Margin="0,0,0,15" materialDesign:HintAssist.Hint="Срок выполнения" Style="{StaticResource MaterialDesignOutlinedDatePicker}"/>
+        <materialDesign:Card Grid.Column="1" Padding="20" UniformCornerRadius="8" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <StackPanel>
+                <TextBlock Text="Новая задача" FontWeight="Bold" Margin="0,0,0,10"/>
+                <TextBox x:Name="NewTaskTxt" Margin="0,0,0,10" materialDesign:HintAssist.Hint="Название..." Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                <ComboBox x:Name="CategoryComboBox" Margin="0,0,0,10" materialDesign:HintAssist.Hint="Категория" DisplayMemberPath="Name" SelectedValuePath="Id" Style="{StaticResource MaterialDesignOutlinedComboBox}"/>
+                <ComboBox x:Name="PriorityComboBox" Margin="0,0,0,10" materialDesign:HintAssist.Hint="Приоритет" DisplayMemberPath="Name" SelectedValuePath="Id" Style="{StaticResource MaterialDesignOutlinedComboBox}"/>
+                <TextBox x:Name="DescriptionTxt" Margin="0,0,0,10" materialDesign:HintAssist.Hint="Описание" TextWrapping="Wrap" AcceptsReturn="True" MinLines="2" MaxLines="3" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+                <DatePicker x:Name="DueDatePick" Margin="0,0,0,15" materialDesign:HintAssist.Hint="Срок выполнения" Style="{StaticResource MaterialDesignOutlinedDatePicker}"/>
                 <materialDesign:TimePicker x:Name="DueTimePick" Margin="0,0,0,15" materialDesign:HintAssist.Hint="Время выполнения"  Style="{StaticResource MaterialDesignOutlinedTimePicker}"></materialDesign:TimePicker>
-            <Button x:Name="AddTaskBtn" Content="Сохранить" Click="AddTaskBtn_Click" Style="{StaticResource MaterialDesignRaisedButton}"/>
-            <Button x:Name="CancelBtn" Content="Отмена" Click="CancelBtn_Click" 
+                <Button x:Name="AddTaskBtn" Content="Сохранить" Click="AddTaskBtn_Click" Style="{StaticResource MaterialDesignRaisedButton}"/>
+                <Button x:Name="CancelBtn" Content="Отмена" Click="CancelBtn_Click" 
                 Style="{StaticResource MaterialDesignFlatButton}" Margin="0,5,0,0"/>
             </StackPanel>
-    </materialDesign:Card>
-</Grid></Page>
+        </materialDesign:Card>
+    </Grid>
+</Page>

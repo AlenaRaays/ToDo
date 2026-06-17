@@ -86,7 +86,6 @@ namespace ToDo.Entities
         public string? ColorHex { get; set; } // Цвет для UI
     }
 
-    // 6. Категории (Работа, Учеба, Личное)
     public class Category
     {
         [Key]
@@ -94,7 +93,7 @@ namespace ToDo.Entities
         [Required]
         [StringLength(100)]
         public string Name { get; set; } = string.Empty;
-        public string? Icon { get; set; } // Иконка для интерфейса
+        public string? Icon { get; set; }
     }
 
     // 7. Сами Задачи
@@ -135,9 +134,6 @@ namespace ToDo.Entities
         public virtual ICollection<Attachment> Attachments { get; set; } = new List<Attachment>();
         public virtual ICollection<Reminder> Reminders { get; set; } = new List<Reminder>();
     }
-
-
-    // 8. Теги (Метки для задач)
     public class Tag
     {
         [Key]
@@ -149,7 +145,6 @@ namespace ToDo.Entities
         public virtual ICollection<TodoTaskTag> TaskTags { get; set; } = new List<TodoTaskTag>();
     }
 
-    // 9. Связующая таблица Многие-ко-Многим (Задача <-> Тег)
     public class TodoTaskTag
     {
         [Key]
@@ -164,7 +159,6 @@ namespace ToDo.Entities
         public virtual Tag? Tag { get; set; }
     }
 
-    // 10. Комментарии к задачам
     public class Comment
     {
         [Key]
@@ -178,7 +172,6 @@ namespace ToDo.Entities
         public virtual TodoTask? TodoTask { get; set; }
     }
 
-    // 11. Вложения (Файлы/ссылки к задачам)
     public class Attachment
     {
         [Key]
@@ -192,7 +185,6 @@ namespace ToDo.Entities
         public virtual TodoTask? TodoTask { get; set; }
     }
 
-    // 12. Напоминания для задач
     public class Reminder
     {
         [Key]
@@ -205,7 +197,6 @@ namespace ToDo.Entities
         public virtual TodoTask? TodoTask { get; set; }
     }
 
-    // 13. Системные уведомления для пользователя
     public class Notification
     {
         [Key]
@@ -220,7 +211,6 @@ namespace ToDo.Entities
         public virtual User? User { get; set; }
     }
 
-    // 14. Фишка: Привычки (Трекер привычек)
     public class Habit
     {
         [Key]
@@ -240,7 +230,6 @@ namespace ToDo.Entities
         public virtual ICollection<HabitLog> HabitLogs { get; set; } = new List<HabitLog>();
     }
 
-    // 15. Логи привычек (Отметки по дням: выполнено/нет)
     public class HabitLog
     {
         [Key]
