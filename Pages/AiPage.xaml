@@ -38,7 +38,7 @@
             </ItemsControl>
         </ScrollViewer>
 
-        <materialDesign:Card Grid.Row="1" UniformCornerRadius="25" Padding="15,5" materialDesign:ElevationAssist.Elevation="Dp3">
+        <materialDesign:Card Grid.Row="1" Margin="10" UniformCornerRadius="25" Padding="15,5" materialDesign:ElevationAssist.Elevation="Dp3">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>

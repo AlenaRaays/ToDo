@@ -183,13 +183,3 @@ C:\Users\Alena\source\repos\ToDo\bin\Debug\net8.0-windows\runtimes\win-x64\nativ
 C:\Users\Alena\source\repos\ToDo\bin\Debug\net8.0-windows\runtimes\win-x86\native\QuestPdfSkia.dll
 C:\Users\Alena\source\repos\ToDo\bin\Debug\net8.0-windows\runtimes\win-x86\native\qpdf.dll
 C:\Users\Alena\source\repos\ToDo\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
-C:\Users\Alena\source\repos\ToDo\bin\Debug\net8.0-windows\Google.Apis.dll
-C:\Users\Alena\source\repos\ToDo\bin\Debug\net8.0-windows\Google.Apis.Auth.dll
-C:\Users\Alena\source\repos\ToDo\bin\Debug\net8.0-windows\Google.Apis.Core.dll
-C:\Users\Alena\source\repos\ToDo\bin\Debug\net8.0-windows\Google.GenAI.dll
-C:\Users\Alena\source\repos\ToDo\bin\Debug\net8.0-windows\Microsoft.Extensions.AI.Abstractions.dll
-C:\Users\Alena\source\repos\ToDo\bin\Debug\net8.0-windows\System.Management.dll
-C:\Users\Alena\source\repos\ToDo\bin\Debug\net8.0-windows\System.Text.Encodings.Web.dll
-C:\Users\Alena\source\repos\ToDo\bin\Debug\net8.0-windows\System.Text.Json.dll
-C:\Users\Alena\source\repos\ToDo\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll
-C:\Users\Alena\source\repos\ToDo\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll

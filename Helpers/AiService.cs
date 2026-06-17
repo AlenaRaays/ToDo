@@ -1,33 +1,50 @@
-﻿using Google.GenAI;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace ToDo.Helpers
 {
-    class AiService
+    public class AiService
     {
-        private readonly string _apiKey = "AQ.Ab8RN6IZrZUg5uCdYSEQ5oRebfN8Ei96Zyzq2r5iGhqpZ7W-JA";
+
+        private readonly string _apiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY");
+
         public async Task<string> GetResponseAsync(string prompt)
         {
             try
             {
-                // Инициализация клиента с ключом
-                var client = new Client(apiKey: _apiKey);
+                string apiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY");
 
-                // Обратите внимание: модель gemini-1.5-flash (или новее, если доступна)
-                var response = await client.Models.GenerateContentAsync(
-                    model: "gemini-1.5-flash",
-                    contents: prompt
-                );
+                // 2. ВАША ПРАВИЛЬНАЯ ССЫЛКА
+                string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={apiKey}";
 
-                return response.Candidates[0].Content.Parts[0].Text;
+                var requestBody = new
+                {
+                    contents = new[] { new { parts = new[] { new { text = prompt } } } }
+                };
+
+                var json = JsonConvert.SerializeObject(requestBody);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                using (var client = new HttpClient())
+                {
+                    var response = await client.PostAsync(url, content);
+                    var responseJson = await response.Content.ReadAsStringAsync();
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        return $"Ошибка API: {response.StatusCode}. Ответ: {responseJson}";
+                    }
+
+                    dynamic result = JsonConvert.DeserializeObject(responseJson);
+                    return result.candidates[0].content.parts[0].text.ToString();
+                }
             }
             catch (Exception ex)
             {
-                return $"Ошибка подключения к Gemini: {ex.Message}";
+                return $"Ошибка: {ex.Message}";
             }
         }
     }

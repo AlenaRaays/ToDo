@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Alena\\source\\repos\\ToDo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\pages\\aipage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:pages\\aipage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\pages\\aipage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:pages\\aipage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\helpers\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:helpers\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\pages\\taskpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:pages\\taskpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\pages\\aipage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:pages\\aipage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 278,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,53 +33,33 @@
               "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AiPage.xaml",
-              "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\AiPage.xaml",
-              "RelativeDocumentMoniker": "Pages\\AiPage.xaml",
-              "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\AiPage.xaml",
-              "RelativeToolTip": "Pages\\AiPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-17T05:51:14.862Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AiPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\AiPage.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\AiPage.xaml.cs",
               "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\AiPage.xaml.cs",
               "RelativeToolTip": "Pages\\AiPage.xaml.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAAABcAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-17T05:51:11.131Z",
+              "WhenOpened": "2026-06-17T15:22:21.518Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "AiService.cs",
               "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Helpers\\AiService.cs",
               "RelativeDocumentMoniker": "Helpers\\AiService.cs",
               "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Helpers\\AiService.cs",
               "RelativeToolTip": "Helpers\\AiService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAuwBIAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-17T05:45:44.71Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TaskPage.xaml",
-              "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\TaskPage.xaml",
-              "RelativeDocumentMoniker": "Pages\\TaskPage.xaml",
-              "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\TaskPage.xaml",
-              "RelativeToolTip": "Pages\\TaskPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-17T05:04:25.152Z",
+              "WhenOpened": "2026-06-17T09:44:44.823Z",
               "EditorCaption": ""
             }
           ]
