@@ -37,7 +37,8 @@ namespace ToDo.AppData
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"Server=ALENA\SQLEXPRESS;Database=ToDo;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer(@"Server=ALENA\SQLEXPRESS;Database=ToDo;
+                Integrated Security=True;Encrypt=True;TrustServerCertificate=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

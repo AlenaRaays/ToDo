@@ -23,7 +23,7 @@ namespace ToDo
             {
                 Username = LoginTxt.Text.Trim(),
                 Email = EmailTxt.Text.Trim(),
-                PasswordHash = SequrityHelper.HashPassword(PasswordBox.Password)
+                PasswordHash = HashPasswordHelper.HashPassword(PasswordBox.Password)
             };
 
             var context = new System.ComponentModel.DataAnnotations.ValidationContext(newUser);

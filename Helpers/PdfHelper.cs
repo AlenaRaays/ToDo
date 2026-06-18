@@ -19,7 +19,7 @@ namespace ToDo.Helpers
                 var priority = db.TaskPriorities.FirstOrDefault(p => p.Id == task.PriorityId);
                 if (priority != null)
                 {
-                    priorityName = priority.Name; // Предполагаем, что поле называется Name
+                    priorityName = priority.Name;
                 }
             }
 
@@ -32,7 +32,7 @@ namespace ToDo.Helpers
                     page.PageColor(Colors.White);
                     page.DefaultTextStyle(x => x.FontSize(12).FontFamily(Fonts.Arial));
 
-                    // --- ХЕДЕР ---
+
                     page.Header().Row(row =>
                     {
                         row.RelativeItem().Column(column =>
@@ -42,7 +42,7 @@ namespace ToDo.Helpers
                         });
                     });
 
-                    // --- ОСНОВНОЙ КОНТЕНТ ---
+
                     page.Content().PaddingVertical(20).Column(column =>
                     {
                         // Название задачи
@@ -62,7 +62,6 @@ namespace ToDo.Helpers
                         });
                     });
 
-                    // --- ФУТЕР ---
                     page.Footer().AlignCenter().Text(x =>
                     {
                         x.Span("Сгенерировано в приложении ToDo");

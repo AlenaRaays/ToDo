@@ -7,7 +7,7 @@ using BCrypt.Net;
 
 namespace ToDo.Helpers
 {
-    internal class SequrityHelper
+    internal class HashPasswordHelper
     {
         public static string HashPassword(string password)
         {

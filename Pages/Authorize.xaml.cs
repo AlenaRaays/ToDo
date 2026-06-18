@@ -14,7 +14,6 @@ namespace ToDo.Pages
             InitializeComponent();
         }
 
-        // Кнопка ВХОД
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
             string username = LoginTxt.Text.Trim();
@@ -30,7 +29,7 @@ namespace ToDo.Pages
             {
                 var user = db.Users.FirstOrDefault(u => u.Username == username);
 
-                if (user != null && Helpers.SequrityHelper.VerifyPassword(password, user.PasswordHash))
+                if (user != null && Helpers.HashPasswordHelper.VerifyPassword(password, user.PasswordHash))
                 {
                     UserSession.CurrentUserId = user.Id;
                     UserSession.CurrentUsername = user.Username;
@@ -48,7 +47,6 @@ namespace ToDo.Pages
             }
         }
 
-        // Переход на страницу регистрации
         private void GoToRegister_Click(object sender, RoutedEventArgs e)
         {
             // Переключаем Frame на новую страницу регистрации

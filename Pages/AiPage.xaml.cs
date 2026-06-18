@@ -1,12 +1,11 @@
-﻿using Microsoft.Extensions;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using ToDo.AppData;
+using ToDo.Entities;
 using ToDo.Helpers;
 
 namespace ToDo.Pages
@@ -31,6 +30,9 @@ namespace ToDo.Pages
     public partial class AiPage : Page
     {
         public ObservableCollection<ChatMessage> ChatMessages { get; set; } = new ObservableCollection<ChatMessage>();
+        private readonly AiService _aiService = new AiService();
+        
+
         public AiPage()
         {
             InitializeComponent();
@@ -39,29 +41,40 @@ namespace ToDo.Pages
 
         private async void SendPromptBtn_Click(object sender, RoutedEventArgs e)
         {
+            using (var db = new AppDbContext())
+            {
+                int id = UserSession.CurrentUserId;
+                var user = db.Users.FirstOrDefault(u => u.Id == id);
+                user.AiRequestCount++;
+            }
+
+
             string prompt = QuestionTxt.Text.Trim();
             if (string.IsNullOrEmpty(prompt)) return;
 
             ChatMessages.Add(new ChatMessage { Text = prompt, IsUser = true });
             QuestionTxt.Clear();
+            QuestionTxt.IsEnabled = false; 
+            SendPromptBtn.IsEnabled = false;
+            
 
-            // 2. Добавляем временное сообщение бота
-            var botMessage = new ChatMessage { Text = "Печатаю...", IsUser = false };
+            var botMessage = new ChatMessage { Text = "...", IsUser = false };
             ChatMessages.Add(botMessage);
 
             try
             {
-                AiService ai = new AiService();
-                string response = await ai.GetResponseAsync(prompt);
-                botMessage.Text = response; // Обновляем текст
+                string response = await _aiService.GetResponseAsync(prompt);
+                botMessage.Text = response;
             }
             catch (Exception ex)
             {
-                // Просто выводим сообщение об ошибке
-                botMessage.Text = $"Ошибка: {ex.Message}";
-
-                // Это по-прежнему будет работать и писать детали в окно Output в Visual Studio
-                System.Diagnostics.Debug.WriteLine($"Детали ошибки: {ex.ToString()}");
+                botMessage.Text = $"Ошибка подключения: {ex.Message}";
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                QuestionTxt.IsEnabled = true;
+                SendPromptBtn.IsEnabled = true;
             }
         }
     }

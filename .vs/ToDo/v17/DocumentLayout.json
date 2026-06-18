@@ -3,9 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Alena\\source\\repos\\ToDo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|A:\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|c:\\users\\alena\\source\\repos\\todo\\helpers\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BCA6379-5066-4CE1-995D-171766F53777}|ToDo.csproj|solutionrelative:helpers\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 278,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,39 +38,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "web.config",
-              "DocumentMoniker": "A:\\web.config",
-              "ToolTip": "A:\\web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-06-17T15:44:28.763Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "AiPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\AiPage.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\AiPage.xaml.cs",
               "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Pages\\AiPage.xaml.cs",
               "RelativeToolTip": "Pages\\AiPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAIwE0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-17T15:22:21.518Z",
+              "WhenOpened": "2026-06-18T05:31:00.944Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AiService.cs",
               "DocumentMoniker": "C:\\Users\\Alena\\source\\repos\\ToDo\\Helpers\\AiService.cs",
               "RelativeDocumentMoniker": "Helpers\\AiService.cs",
               "ToolTip": "C:\\Users\\Alena\\source\\repos\\ToDo\\Helpers\\AiService.cs",
               "RelativeToolTip": "Helpers\\AiService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-17T09:44:44.823Z",
+              "WhenOpened": "2026-06-18T05:27:32.345Z",
               "EditorCaption": ""
             }
           ]
